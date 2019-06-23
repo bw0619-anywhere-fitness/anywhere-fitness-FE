@@ -5,7 +5,7 @@ import { register } from '../actions'
 
 export class Register extends Component {
     state = {
-        credentials: {
+        user: {
             fullname: "",
             username: "",
             password: ""
@@ -14,8 +14,8 @@ export class Register extends Component {
 
     handleChange = e => {
         this.setState({
-            credentials: {
-                ...this.state.credentials,
+            user: {
+                ...this.state.user,
                 [e.target.name]: e.target.value
             }
         });
@@ -25,7 +25,7 @@ export class Register extends Component {
     register = e => {
         e.preventDefault();
         this.props
-            .register(this.state.credentials)
+            .register(this.state.user)
             .then(res => {
                 if (res) {
                     this.props.history.push("./login");
@@ -42,21 +42,21 @@ export class Register extends Component {
                         type="text"
                         name="fullname"
                         placeholder="Full Name"
-                        value={this.state.credentials.fullname}
+                        value={this.state.user.fullname}
                         onChange={this.handleChange}
                     />
                     <input
                         type="text"
                         name="username"
                         placeholder="Username"
-                        value={this.state.credentials.username}
+                        value={this.state.user.username}
                         onChange={this.handleChange}
                     />
                     <input
                         type="password"
                         name="password"
                         placeholder="Password"
-                        value={this.state.credentials.password}
+                        value={this.state.user.password}
                         onChange={this.handleChange}
                     />
                     <button>

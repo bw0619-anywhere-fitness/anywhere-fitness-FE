@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Loader from "react-loader-spinner";
+import { connect } from 'react-redux';
+import { register } from '../actions'
 
 export class Register extends Component {
     state = {
@@ -17,6 +19,18 @@ export class Register extends Component {
                 [e.target.name]: e.target.value
             }
         });
+    };
+
+
+    register = e => {
+        e.preventDefault();
+        this.props
+            .register(this.state.credentials)
+            .then(res => {
+                if (res) {
+                    this.props.history.push("./login");
+                }
+            });
     };
 
     render() {
@@ -49,7 +63,7 @@ export class Register extends Component {
                         {this.props.registering ? (
                             <Loader type="ThreeDots" color="#1f2a38" height="12" width="26" />
                         ) : (
-                                "Log in"
+                                "Register"
                             )}
                     </button>
                 </form>
@@ -58,4 +72,15 @@ export class Register extends Component {
     }
 }
 
-export default Register
+const mapStateToProps = state => {
+    return {
+        error: state.registerReducer.error,
+        creatingUser: state.registerReducer.creatingUser
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    { register }
+)(Register);
+

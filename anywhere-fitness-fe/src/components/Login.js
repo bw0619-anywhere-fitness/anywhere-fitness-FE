@@ -22,7 +22,6 @@ export class Login extends Component {
 
     login = e => {
         e.preventDefault();
-        console.log('component', this.props)
         this.props
             .login(this.state.credentials)
             .then(res => {

@@ -28,7 +28,12 @@ export const login = credentials => dispatch => {
             dispatch({ type: LOGIN_SUCCESS });
             return true;
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            dispatch({
+                type: LOGIN_FAILURE,
+                payload: err.response.data
+            });
+        });
 };
 
 export const isLoggedIn = () => dispatch => {

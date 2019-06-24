@@ -23,6 +23,14 @@ export const login = credentials => dispatch => {
     dispatch({ type: LOGIN_START });
     return axiosWithAuth()
         .post("/login", credentials)
-        .then(res => console.log(res))
+        .then(res => {
+            localStorage.setItem("token", res.data.token);
+            dispatch({ type: LOGIN_SUCCESS });
+            return true;
+        })
         .catch(err => console.log(err));
 };
+
+export const loggedIn = () => dispatch => {
+    dispatch({ type: LOGIN_SUCCESS });
+}

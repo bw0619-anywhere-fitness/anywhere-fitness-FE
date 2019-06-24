@@ -1,11 +1,11 @@
 import {
-    REGISTER_START, REGISTER_SUCCESS, REGISTER_FAILURE
-    // REGISTER_SUCCESS,
-    // REGISTER_FAILURE
+    REGISTER_START,
+    REGISTER_SUCCESS,
+    REGISTER_FAILURE
 } from "../actions";
 
 const initialState = {
-    users: [],
+    user: [],
     creatingUser: false,
     error: ""
 }
@@ -19,10 +19,9 @@ export const registerReducer = (state = initialState, action) => {
                 creatingUser: true
             }
         case REGISTER_SUCCESS:
-            console.log('reducer: ', action)
             return {
                 ...state,
-                users: action.payload,
+                user: action.payload,
                 creatingUser: false
             }
         case REGISTER_FAILURE:

@@ -53,7 +53,7 @@ export class Login extends Component {
                     />
                     <button>
                         {this.props.loggingIn ? (
-                            <Loader type="ThreeDots" color="#1f2a38" height="12" width="26" />
+                            <Loader type="TailSpin" color="#ffffff" height="26" width="26" />
                         ) : (
                                 "Login"
                             )}
@@ -65,7 +65,6 @@ export class Login extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log(state)
     return {
         error: state.loginReducer.error,
         loggingIn: state.loginReducer.loggingIn

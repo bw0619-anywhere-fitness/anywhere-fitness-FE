@@ -31,6 +31,12 @@ export const login = credentials => dispatch => {
         .catch(err => console.log(err));
 };
 
-export const loggedIn = () => dispatch => {
+export const isLoggedIn = () => dispatch => {
     dispatch({ type: LOGIN_SUCCESS });
+}
+
+export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
+export const logout = () => dispatch => {
+    dispatch({ type: LOGOUT_SUCCESS });
+    localStorage.removeItem("token");
 }

@@ -7,13 +7,13 @@ import Login from './components/Login';
 import Register from './components/Register';
 import PrivateRoute from "./components/PrivateRoute";
 import { connect } from "react-redux";
-import { loggedIn } from './actions';
+import { isLoggedIn, logout } from './actions';
 
 class App extends React.Component {
 
   componentDidMount() {
     if (localStorage.getItem("token")) {
-      this.props.loggedIn()
+      this.props.isLoggedIn()
     }
   }
 
@@ -26,10 +26,15 @@ class App extends React.Component {
               <div className="home-link">
                 <NavLink to="/home">Anywhere Fitness</NavLink>
               </div>
-              <div className="user-links">
-                <NavLink to="/login">Login</NavLink>
-                <NavLink to="/register">Register</NavLink>
-              </div>
+              {!this.props.loggedIn ? (
+                <div className="user-links">
+                  <NavLink to="/login">Login</NavLink>
+                  <NavLink to="/register">Register</NavLink>
+                </div>) : (
+                  <div className="user-links">
+                    <NavLink onClick={() => this.props.logout()} to="/login">Logout</NavLink>
+                  </div>
+                )}
             </div>
           </nav>
 
@@ -67,6 +72,7 @@ class App extends React.Component {
                 {...props}
               />
             )} />
+
         </div>
       </Router >
 
@@ -82,5 +88,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { loggedIn }
+  { isLoggedIn, logout }
 )(App);

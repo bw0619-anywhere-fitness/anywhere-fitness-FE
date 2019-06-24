@@ -60,8 +60,8 @@ export class Register extends Component {
                         onChange={this.handleChange}
                     />
                     <button>
-                        {this.props.registering ? (
-                            <Loader type="ThreeDots" color="#1f2a38" height="12" width="26" />
+                        {this.props.creatingUser ? (
+                            <Loader type="TailSpin" color="#ffffff" height="26" width="26" />
                         ) : (
                                 "Register"
                             )}

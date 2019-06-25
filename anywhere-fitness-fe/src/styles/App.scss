@@ -151,5 +151,32 @@
 
   .update-class-form {
     margin: 30px 80px;
+    form {
+      display: flex;
+      flex-flow: column;
+      input {
+        margin: 5px auto;
+        width: 15%;
+        height: 25px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0 0px 5px grey;
+        padding: 10px 10px;
+        font-size: 1rem;
+      }
+
+      button {
+        margin: 5px auto;
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        padding: 5px 20px;
+        cursor: pointer;
+        outline: none;
+      }
+    }
   }
 }

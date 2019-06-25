@@ -95,6 +95,7 @@ class App extends React.Component {
 const mapStateToProps = state => {
   return {
     loggedIn: state.loginReducer.loggedIn,
+    singleClass: state.homeReducer.singleClass
   }
 }
 

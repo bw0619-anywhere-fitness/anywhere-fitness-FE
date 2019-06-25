@@ -65,5 +65,45 @@ export const getAllClassesByInstructor = instructorId => dispatch => {
                 payload: res.data
             })
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            dispatch({
+                type: GETALLCLASSES_BYINSTRUCTOR_FAILURE,
+                payload: err.response.data
+            })
+        })
 }
+
+export const CREATE_INSTRUCTOR_CLASS_START = "CREATE_INSTRUCTOR_CLASS_START";
+export const CREATE_INSTRUCTOR_CLASS_SUCCESS = "CREATE_INSTRUCTOR_CLASS_SUCCESS";
+export const CREATE_INSTRUCTOR_CLASS_FAILURE = "CREATE_INSTRUCTOR_CLASS_FAILURE";
+
+export const GETCLASS_BYID_START = "GETCLASS_BYID_START";
+export const GETCLASS_BYID_SUCCESS = "GETCLASS_BYID_SUCCESS";
+export const GETCLASS_BYID_FAILURE = "GETCLASS_BYID_FAILURE";
+export const getClassByInstructor = classId => dispatch => {
+    dispatch({ type: GETCLASS_BYID_START });
+    axiosWithAuth()
+        .get(`https://anywhere-fitness-azra-be.herokuapp.com/api/classes/${classId}`)
+        .then(res => {
+            cookie.save('singleClass', res.data)
+            dispatch({
+                type: GETCLASS_BYID_SUCCESS,
+                payload: res.data
+            })
+
+        })
+        .catch(err => {
+            dispatch({
+                type: GETCLASS_BYID_FAILURE,
+                payload: err.response.data
+            })
+        })
+}
+
+export const UPDATE_INSTRUCTOR_CLASS_START = "UPDATE_INSTRUCTOR_CLASS_START";
+export const UPDATE_INSTRUCTOR_CLASS_SUCCESS = "UPDATE_INSTRUCTOR_CLASS_SUCCESS";
+export const UPDATE_INSTRUCTOR_CLASS_FAILURE = "UPDATE_INSTRUCTOR_CLASS_FAILURE";
+
+export const DELETE_INSTRUCTOR_CLASS_START = "DELETE_INSTRUCTOR_CLASS_START"
+export const DELETE_INSTRUCTOR_CLASS_SUCESS = "DELETE_INSTRUCTOR_CLASS_SUCESS"
+export const DELETE_INSTRUCTOR_CLASS_FAILURE = "DELETE_INSTRUCTOR_CLASS_FAILURE"

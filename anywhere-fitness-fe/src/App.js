@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Welcome from './components/Welcome';
 import Login from './components/Login';
 import Register from './components/Register';
+import UpdateClassForm from './components/UpdateClassForm';
 import PrivateRoute from "./components/PrivateRoute";
 import { connect } from "react-redux";
 import { isLoggedIn, logout } from './actions';
@@ -74,6 +75,15 @@ class App extends React.Component {
                 {...props}
               />
             )} />
+
+          <Route
+            path="/update-class-form"
+            render={(props) => (
+              <UpdateClassForm
+                {...props}
+              />
+            )}
+          />
 
         </div>
       </Router >

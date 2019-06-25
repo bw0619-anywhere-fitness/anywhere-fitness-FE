@@ -60,12 +60,25 @@
     .instructor-classes {
       display: flex;
       flex-flow: row;
+      margin-top: 20px;
       .instructor-class {
         box-shadow: 0 10px 10px grey;
-        padding: 30px;
+        padding: 20px 40px;
         margin: auto 20px;
-        cursor: pointer;
+        font-size: 1rem;
       }
+    }
+    button {
+      margin: 5px auto;
+      color: #fff;
+      background-color: #007bff;
+      border-color: #007bff;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      padding: 5px 20px;
+      cursor: pointer;
+      outline: none;
     }
   }
 
@@ -96,6 +109,8 @@
         font-size: 1.1rem;
         font-weight: bold;
         padding: 5px 20px;
+        cursor: pointer;
+        outline: none;
       }
     }
   }
@@ -128,7 +143,13 @@
         font-size: 1.1rem;
         font-weight: bold;
         padding: 5px 20px;
+        cursor: pointer;
+        outline: none;
       }
     }
+  }
+
+  .update-class-form {
+    margin: 30px 80px;
   }
 }

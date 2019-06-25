@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const InstructorClass = props => {
     return (
@@ -10,7 +11,11 @@ const InstructorClass = props => {
             <div className="instructor-class-city">city: {props.instructorClass.city}</div>
             <div className="instructor-class-zipcode">zipcode: {props.instructorClass.zipcode}</div>
             <div className="instructor-class-description">description: {props.instructorClass.description}</div>
+            <Link to="/update-class-form">
+                <button onClick={() => { props.getClassByInstructor(props.instructorClass.classId) }}>View Details</button>
+            </Link>
         </div>
+
     )
 }
 

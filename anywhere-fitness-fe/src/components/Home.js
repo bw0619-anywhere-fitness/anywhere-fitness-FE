@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getAllClassesByInstructor, getClassByInstructor } from '../actions';
+import { getAllClassesByInstructor, getClassByInstructor, setUpdateForm } from '../actions';
 import cookie from 'react-cookies';
 import InstructorClass from './InstructorClass';
 
@@ -21,6 +21,7 @@ export class Home extends Component {
                             key={instructorClass.classId}
                             instructorClass={instructorClass}
                             getClassByInstructor={this.props.getClassByInstructor}
+                            setUpdateForm={this.setUpdateForm}
                         />
                     })}
                 </div>
@@ -41,7 +42,8 @@ export default connect(
     mapStateToProps,
     {
         getAllClassesByInstructor,
-        getClassByInstructor
+        getClassByInstructor,
+        setUpdateForm
 
     }
 )(Home)

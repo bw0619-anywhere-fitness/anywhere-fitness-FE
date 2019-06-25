@@ -66,7 +66,7 @@ export class Login extends Component {
 const mapStateToProps = state => {
     return {
         error: state.loginReducer.error,
-        loggingIn: state.loginReducer.loggingIn
+        loggingIn: state.loginReducer.loggingIn,
     }
 }
 

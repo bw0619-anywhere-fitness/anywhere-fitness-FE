@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="135px" height="40px" viewBox="0 0 135 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>logo copy 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <text id="text-1" font-family="SignPainter-HouseScriptSemibold, SignPainter" font-size="24" font-style="condensed" font-weight="500" fill="#FA6400">
+            <tspan x="0" y="17">Anywhere</tspan>
+        </text>
+        <filter x="-3.4%" y="-11.4%" width="111.0%" height="150.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="1" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.488847373   0 0 0 0 0.481469951   0 0 0 0 0.481469951  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-3" font-family="SignPainter-HouseScriptSemibold, SignPainter" font-size="24" font-style="condensed" font-weight="500" letter-spacing="0.216" fill="#00518E">
+            <tspan x="73" y="17">Fitness</tspan>
+        </text>
+        <filter x="-6.9%" y="-11.4%" width="117.6%" height="131.8%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="1" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.570482337   0 0 0 0 0.570482337   0 0 0 0 0.570482337  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="logo-copy-3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="1">
+        <g id="logo-copy" transform="translate(6.000000, 11.000000)">
+            <g id="Logo-Copy">
+                <g id="Anywhere" fill="#FA6400">
+                    <use filter="url(#filter-2)" xlink:href="#text-1"></use>
+                    <use xlink:href="#text-1"></use>
+                </g>
+                <g id="Fitness" fill="#00518E">
+                    <use filter="url(#filter-4)" xlink:href="#text-3"></use>
+                    <use xlink:href="#text-3"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

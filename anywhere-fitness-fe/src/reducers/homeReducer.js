@@ -10,15 +10,20 @@ import {
     CREATE_CLASS_FAILURE,
     UPDATE_INSTRUCTOR_CLASS_START,
     UPDATE_INSTRUCTOR_CLASS_SUCCESS,
-    UPDATE_INSTRUCTOR_CLASS_FAILURE
+    UPDATE_INSTRUCTOR_CLASS_FAILURE,
+    DELETE_INSTRUCTOR_CLASS_START,
+    DELETE_INSTRUCTOR_CLASS_SUCESS,
+    DELETE_INSTRUCTOR_CLASS_FAILURE
 } from '../actions';
 
 const initialState = {
     instructorClasses: [],
     singleClass: "",
+    creatingClass: false,
     gettingClassesByInstructor: false,
     gettingClassById: false,
     updatingClassById: false,
+    deleteingClassById: false,
     error: ""
 }
 
@@ -61,15 +66,20 @@ export const homeReducer = (state = initialState, action) => {
             }
         case CREATE_CLASS_START:
             return {
-                ...state
+                ...state,
+                creatingClass: true,
+                error: ""
             }
         case CREATE_CLASS_SUCCESS:
             return {
-                ...state
+                ...state,
+                singleClass: action.payload,
+                error: ""
             }
         case CREATE_CLASS_FAILURE:
             return {
-                ...state
+                ...state,
+                error: action.payload
             }
         case UPDATE_INSTRUCTOR_CLASS_START:
             return {
@@ -84,6 +94,23 @@ export const homeReducer = (state = initialState, action) => {
                 singleClass: action.payload
             }
         case UPDATE_INSTRUCTOR_CLASS_FAILURE:
+            return {
+                ...state,
+                error: action.payload
+            }
+        case DELETE_INSTRUCTOR_CLASS_START:
+            return {
+                ...state,
+                error: "",
+                deleteingClassById: true
+            }
+        case DELETE_INSTRUCTOR_CLASS_SUCESS:
+            return {
+                ...state,
+                deleteingClassById: false,
+                singleClass: action.payload
+            }
+        case DELETE_INSTRUCTOR_CLASS_FAILURE:
             return {
                 ...state,
                 error: action.payload

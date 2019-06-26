@@ -60,12 +60,15 @@
     .instructor-classes {
       display: flex;
       flex-flow: row;
+      flex-wrap: wrap;
       margin-top: 20px;
+      justify-content: space-evenly;
       .instructor-class {
         box-shadow: 0 10px 10px grey;
         padding: 20px 40px;
         margin: auto 20px;
         font-size: 1rem;
+        width: 15%;
       }
     }
     button {

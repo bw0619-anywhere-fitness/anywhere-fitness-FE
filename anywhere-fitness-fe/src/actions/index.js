@@ -76,12 +76,23 @@ export const getAllClassesByInstructor = instructorId => dispatch => {
 export const CREATE_CLASS_START = "CREATE_CLASS_START";
 export const CREATE_CLASS_SUCCESS = "CREATE_CLASS_SUCCESS";
 export const CREATE_CLASS_FAILURE = "CREATE_CLASS_FAILURE";
-export const createClass = (classId, singleClass) => dispatch => {
+export const createClass = singleClass => dispatch => {
     dispatch({ type: CREATE_CLASS_START });
-    axiosWithAuth()
-        .post(`https://anywhere-fitness-azra-be.herokuapp.com/api/classes/${classId}`, singleClass)
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+    console.log(singleClass)
+    return axiosWithAuth()
+        .post(`https://anywhere-fitness-azra-be.herokuapp.com/api/classes`, singleClass)
+        .then(res => {
+            dispatch({
+                type: CREATE_CLASS_SUCCESS,
+                payload: res.data
+            })
+        })
+        .catch(err => {
+            dispatch({
+                type: CREATE_CLASS_FAILURE,
+                payload: err.response.data.message
+            })
+        })
 }
 
 export const GETCLASS_BYID_START = "GETCLASS_BYID_START";
@@ -129,3 +140,10 @@ export const updateClass = (classId, singleClass) => dispatch => {
 export const DELETE_INSTRUCTOR_CLASS_START = "DELETE_INSTRUCTOR_CLASS_START"
 export const DELETE_INSTRUCTOR_CLASS_SUCESS = "DELETE_INSTRUCTOR_CLASS_SUCESS"
 export const DELETE_INSTRUCTOR_CLASS_FAILURE = "DELETE_INSTRUCTOR_CLASS_FAILURE"
+export const deleteClass = (classId, singleClass) => dispatch => {
+    dispatch({ type: DELETE_INSTRUCTOR_CLASS_START });
+    axiosWithAuth()
+        .delete(`https://anywhere-fitness-azra-be.herokuapp.com/api/classes/${classId}`, singleClass)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+}

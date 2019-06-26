@@ -14,7 +14,6 @@ const InstructorClass = props => {
             <Link to={`/update-class-form/${props.instructorClass.classId}`}>
                 <button>View Details</button>
             </Link>
-
         </div>
 
     )

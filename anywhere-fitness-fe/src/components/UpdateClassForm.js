@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateClass } from '../actions';
+import { updateClass, deleteClass } from '../actions';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 export class UpdateClassForm extends Component {
@@ -37,11 +37,7 @@ export class UpdateClassForm extends Component {
     render() {
         return (
             <div className="update-class-form">
-                <form onSubmit={(e) => {
-                    e.preventDefault();
-                    this.props.updateClass(this.state.singleClass.id, this.state.singleClass);
-                    this.props.history.push('/home');
-                }}>
+                <form>
                     <input
                         type="text"
                         onChange={this.changeHandler}
@@ -91,8 +87,18 @@ export class UpdateClassForm extends Component {
                         value={this.state.singleClass.description}
                         name="description"
                     />
-                    <button>Update</button>
-                    <button>Delete</button>
+                    <button
+                        onClick={(e) => {
+                            e.preventDefault();
+                            this.props.updateClass(this.state.singleClass.id, this.state.singleClass);
+                            this.props.history.push('/home');
+                        }}
+                    >Update</button>
+                    <button onClick={(e) => {
+                        e.preventDefault();
+                        this.props.deleteClass(this.state.singleClass.id, this.state.singleClass)
+                        this.props.history.push('/home');
+                    }}>Delete</button>
                 </form>
             </div>
         )
@@ -108,6 +114,7 @@ const mapStateToProps = state => {
 export default connect(
     mapStateToProps,
     {
-        updateClass
+        updateClass,
+        deleteClass
     }
 )(UpdateClassForm)

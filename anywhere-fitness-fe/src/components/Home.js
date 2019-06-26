@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getAllClassesByInstructor, getClassByInstructor, setUpdateForm } from '../actions';
+import { getAllClassesByInstructor, getClassByInstructor } from '../actions';
 import cookie from 'react-cookies';
 import InstructorClass from './InstructorClass';
-
+import { Link } from 'react-router-dom';
 
 export class Home extends Component {
 
@@ -14,7 +14,9 @@ export class Home extends Component {
     render() {
         return (
             <div className="home">
-                <button>Add Class</button>
+                <Link to="/add-class">
+                    <button>Add Class</button>
+                </Link>
                 <div className="instructor-classes">
                     {this.props.instructorClasses.map(instructorClass => {
                         return <InstructorClass
@@ -42,8 +44,6 @@ export default connect(
     mapStateToProps,
     {
         getAllClassesByInstructor,
-        getClassByInstructor,
-        setUpdateForm
-
+        getClassByInstructor
     }
 )(Home)

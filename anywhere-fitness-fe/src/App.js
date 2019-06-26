@@ -11,6 +11,7 @@ import { connect } from "react-redux";
 import { isLoggedIn, logout } from './actions';
 import Logo from './assets/logo.svg';
 import cookie from 'react-cookies';
+import AddInstructorClass from './components/AddInstructorClass';
 
 class App extends React.Component {
 
@@ -77,7 +78,16 @@ class App extends React.Component {
             )} />
 
           <Route
-            path="/update-class-form"
+            path="/add-class"
+            render={props => (
+              <AddInstructorClass
+                {...props}
+              />
+            )}
+          />
+
+          <Route
+            path="/update-class-form/:id"
             render={(props) => (
               <UpdateClassForm
                 {...props}

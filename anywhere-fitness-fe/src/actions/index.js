@@ -73,9 +73,16 @@ export const getAllClassesByInstructor = instructorId => dispatch => {
         })
 }
 
-export const CREATE_INSTRUCTOR_CLASS_START = "CREATE_INSTRUCTOR_CLASS_START";
-export const CREATE_INSTRUCTOR_CLASS_SUCCESS = "CREATE_INSTRUCTOR_CLASS_SUCCESS";
-export const CREATE_INSTRUCTOR_CLASS_FAILURE = "CREATE_INSTRUCTOR_CLASS_FAILURE";
+export const CREATE_CLASS_START = "CREATE_CLASS_START";
+export const CREATE_CLASS_SUCCESS = "CREATE_CLASS_SUCCESS";
+export const CREATE_CLASS_FAILURE = "CREATE_CLASS_FAILURE";
+export const createClass = (classId, singleClass) => dispatch => {
+    dispatch({ type: CREATE_CLASS_START });
+    axiosWithAuth()
+        .post(`https://anywhere-fitness-azra-be.herokuapp.com/api/classes/${classId}`, singleClass)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+}
 
 export const GETCLASS_BYID_START = "GETCLASS_BYID_START";
 export const GETCLASS_BYID_SUCCESS = "GETCLASS_BYID_SUCCESS";
@@ -101,20 +108,23 @@ export const getClassByInstructor = classId => dispatch => {
 export const UPDATE_INSTRUCTOR_CLASS_START = "UPDATE_INSTRUCTOR_CLASS_START";
 export const UPDATE_INSTRUCTOR_CLASS_SUCCESS = "UPDATE_INSTRUCTOR_CLASS_SUCCESS";
 export const UPDATE_INSTRUCTOR_CLASS_FAILURE = "UPDATE_INSTRUCTOR_CLASS_FAILURE";
-export const updateClass = singleClass => dispatch => {
+export const updateClass = (classId, singleClass) => dispatch => {
     dispatch({ type: UPDATE_INSTRUCTOR_CLASS_START });
     axiosWithAuth()
-        .put(`https://anywhere-fitness-azra-be.herokuapp.com/api/classes/${singleClass.classId}`, singleClass)
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+        .put(`https://anywhere-fitness-azra-be.herokuapp.com/api/classes/${classId}`, singleClass)
+        .then(res => {
+            dispatch({
+                type: UPDATE_INSTRUCTOR_CLASS_SUCCESS,
+                payload: res.data
+            })
+        })
+        .catch(err => {
+            dispatch({
+                type: UPDATE_INSTRUCTOR_CLASS_FAILURE,
+                payload: err.response.data.message
+            })
+        })
 }
-
-export const SET_UPDATE_FORM = "SET_UPDATE_FORM";
-export const setUpdateForm = (e, singleClass) => dispatch => {
-    e.preventDefault();
-    dispatch({ type: SET_UPDATE_FORM, payload: singleClass });
-}
-
 
 export const DELETE_INSTRUCTOR_CLASS_START = "DELETE_INSTRUCTOR_CLASS_START"
 export const DELETE_INSTRUCTOR_CLASS_SUCESS = "DELETE_INSTRUCTOR_CLASS_SUCESS"

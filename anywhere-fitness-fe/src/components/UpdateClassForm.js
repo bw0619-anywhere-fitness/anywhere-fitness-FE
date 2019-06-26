@@ -1,28 +1,53 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateClass } from '../actions';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 export class UpdateClassForm extends Component {
     state = {
-        singleClass: this.props.singleClass
+        singleClass: {
+            name: "",
+            date: "",
+            time: "",
+            address: "",
+            city: "",
+            zipcode: "",
+            description: ""
+        }
+    }
+
+    componentDidMount() {
+        axiosWithAuth()
+            .get(`https://anywhere-fitness-azra-be.herokuapp.com/api/classes/${this.props.match.params.id}`)
+            .then(res => {
+                this.setState({ singleClass: res.data })
+            })
     }
 
     changeHandler = e => {
-        this.setState({ singleClass: { ...this.state.singleClass, [e.target.name]: e.target.value } })
+        e.persist();
+        this.setState(prevState => ({
+            singleClass: {
+                ...prevState.singleClass,
+                [e.target.name]: e.target.value,
+            }
+        }))
     };
+
     render() {
-        console.log(this.state.singleClass)
         return (
             <div className="update-class-form">
-                <form onSubmit={() => {
-                    this.props.updateClass(1)
+                <form onSubmit={(e) => {
+                    e.preventDefault();
+                    this.props.updateClass(this.state.singleClass.id, this.state.singleClass);
+                    this.props.history.push('/home');
                 }}>
                     <input
                         type="text"
                         onChange={this.changeHandler}
                         placeholder="Class Name"
                         value={this.state.singleClass.name}
-                        name="classname"
+                        name="name"
                     />
                     <input
                         type="text"
@@ -43,7 +68,7 @@ export class UpdateClassForm extends Component {
                         onChange={this.changeHandler}
                         placeholder="Address"
                         value={this.state.singleClass.address}
-                        name="text"
+                        name="address"
                     />
                     <input
                         type="text"

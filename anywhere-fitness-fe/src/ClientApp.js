@@ -8,6 +8,7 @@ import ClientRegister from './components/Clients/ClientRegister';
 import ClientPrivateRoute from "./components/Clients/ClientPrivateRoute";
 import { connect } from "react-redux";
 import Logo from './assets/logo.svg';
+import { clientIsLoggedIn, logout } from './actions';
 
 class ClientApp extends React.Component {
 
@@ -20,7 +21,7 @@ class ClientApp extends React.Component {
               <div className="home-link">
                 <NavLink to="/client-home"><img src={Logo} alt="" /></NavLink>
               </div>
-              {!this.props.loggedIn ? (
+              {!this.props.clientLoggedIn ? (
                 <div className="user-links">
                   <NavLink className="login-btn-nav" to="/client-login">Login</NavLink>
                   <NavLink className="register-btn-nav" to="/client-register">Register</NavLink>
@@ -75,9 +76,16 @@ class ClientApp extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
+    clientLoggedIn: state.clientLoginReducer.clientLoggedIn
   }
 }
 
-export default connect(mapStateToProps)(ClientApp);
+export default connect(
+  mapStateToProps,
+  {
+    clientIsLoggedIn,
+    logout
+  }
+
+)(ClientApp);

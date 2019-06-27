@@ -4,6 +4,7 @@ export class Welcome extends Component {
     componentDidMount() {
         this.props.history.push('/instructor-login');
     }
+
     render() {
         return (
             <div className="welcome">

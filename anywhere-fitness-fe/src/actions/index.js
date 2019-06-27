@@ -78,7 +78,6 @@ export const CREATE_CLASS_SUCCESS = "CREATE_CLASS_SUCCESS";
 export const CREATE_CLASS_FAILURE = "CREATE_CLASS_FAILURE";
 export const createClass = singleClass => dispatch => {
     dispatch({ type: CREATE_CLASS_START });
-    console.log(singleClass)
     return axiosWithAuth()
         .post(`https://anywhere-fitness-azra-be.herokuapp.com/api/classes`, singleClass)
         .then(res => {

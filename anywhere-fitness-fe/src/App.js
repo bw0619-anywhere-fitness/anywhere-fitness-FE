@@ -1,17 +1,17 @@
 import React from 'react';
 import './styles/App.scss';
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-import Home from './components/Home';
-import Welcome from './components/Welcome';
-import Login from './components/Login';
-import Register from './components/Register';
-import UpdateClassForm from './components/UpdateClassForm';
-import PrivateRoute from "./components/PrivateRoute";
+import Home from './components/Instructors/Home';
+import Welcome from './components/Instructors/Welcome';
+import Login from './components/Instructors/Login';
+import Register from './components/Instructors/Register';
+import UpdateClassForm from './components/Instructors/UpdateClassForm';
+import PrivateRoute from "./components/Instructors/PrivateRoute";
 import { connect } from "react-redux";
 import { isLoggedIn, logout } from './actions';
 import Logo from './assets/logo.svg';
 import cookie from 'react-cookies';
-import AddInstructorClass from './components/AddInstructorClass';
+import AddInstructorClass from './components/Instructors/AddInstructorClass';
 
 class App extends React.Component {
 
@@ -28,15 +28,15 @@ class App extends React.Component {
           <nav className="nav">
             <div className="nav-links">
               <div className="home-link">
-                <NavLink to="/home"><img src={Logo} alt="" /></NavLink>
+                <NavLink to="/business-home"><img src={Logo} alt="" /></NavLink>
               </div>
               {!this.props.loggedIn ? (
                 <div className="user-links">
-                  <NavLink to="/login">Login</NavLink>
-                  <NavLink to="/register">Register</NavLink>
+                  <NavLink className="login-btn-nav" to="/instructor-login">Login</NavLink>
+                  <NavLink className="register-btn-nav" to="/instructor-register">Register</NavLink>
                 </div>) : (
                   <div className="user-links">
-                    <NavLink onClick={() => this.props.logout()} to="/login">Logout</NavLink>
+                    <NavLink className="logout-btn" onClick={() => this.props.logout()} to="/instructor-login">Logout</NavLink>
                   </div>
                 )}
             </div>
@@ -54,7 +54,7 @@ class App extends React.Component {
 
           <PrivateRoute
             exact
-            path="/home"
+            path="/business-home"
             component={props => (
               <Home
                 {...props}
@@ -62,7 +62,7 @@ class App extends React.Component {
             )} />
 
           <Route
-            path="/register"
+            path="/instructor-register"
             render={props => (
               <Register
                 {...props}
@@ -70,7 +70,7 @@ class App extends React.Component {
             )} />
 
           <Route
-            path="/login"
+            path="/instructor-login"
             render={props => (
               <Login
                 {...props}

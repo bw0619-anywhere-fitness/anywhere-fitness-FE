@@ -8,8 +8,8 @@ export class Welcome extends Component {
                 <div className="welcome-header">
                     <h1> Welcome to Anywhere Fitness!</h1>
                     <div className="welcome-links">
-                        <Link to="/login">Login</Link>
-                        <Link to="/register">Register</Link>
+                        <Link to="/instructor-login">Login</Link>
+                        <Link to="/instructor-register">Register</Link>
                     </div>
                 </div>
             </div>

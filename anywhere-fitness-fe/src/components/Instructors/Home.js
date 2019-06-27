@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getAllClassesByInstructor, getClassByInstructor } from '../actions';
+import { getAllClassesByInstructor, getClassByInstructor } from '../../actions';
 import cookie from 'react-cookies';
 import InstructorClass from './InstructorClass';
 import { Link } from 'react-router-dom';
@@ -15,7 +15,7 @@ export class Home extends Component {
         return (
             <div className="home">
                 <Link to="/add-class">
-                    <button>Add Class</button>
+                    <button className="add-class-btn">Add Class</button>
                 </Link>
                 <div className="instructor-classes">
                     {this.props.instructorClasses.map(instructorClass => {

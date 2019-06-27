@@ -146,3 +146,28 @@ export const deleteClass = (classId, singleClass) => dispatch => {
         .then(res => console.log(res))
         .catch(err => console.log(err))
 }
+
+
+/////////////CLIENT ACTIONS/////////////////////////////CLIENT ACTIONS/////////////////////////////CLIENT ACTIONS///////
+
+export const CLIENT_REGISTER_START = "CLIENT_REGISTER_START";
+export const CLIENT_REGISTER_SUCCESS = "CLIENT_REGISTER_SUCCESS";
+export const CLIENT_REGISTER_FAILURE = "CLIENT_REGISTER_FAILURE";
+export const registerClient = user => dispatch => {
+    dispatch({ type: CLIENT_REGISTER_START });
+    return axiosWithAuth()
+        .post("/client-register", user)
+        .then(res => {
+            dispatch({
+                type: CLIENT_REGISTER_SUCCESS,
+                payload: res.data
+            })
+            return true;
+        })
+        .catch(err => {
+            dispatch({
+                type: CLIENT_REGISTER_FAILURE,
+                payload: err.response
+            })
+        });
+}

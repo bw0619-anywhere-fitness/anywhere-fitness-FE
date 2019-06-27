@@ -29,7 +29,7 @@ export class Register extends Component {
             .register(this.state.user)
             .then(res => {
                 if (res) {
-                    this.props.history.push("./instructor-login");
+                    this.props.history.push("/instructor");
                 }
             });
     };
@@ -70,7 +70,7 @@ export class Register extends Component {
                                     "Register"
                                 )}
                         </button>
-                        <Link className="redirect-login" to="instructor-login">Already have an Account? Sign in here</Link>
+                        <Link className="redirect-login" to="/instructor">Already have an Account? Sign in here</Link>
                     </form>
                 </div>
             </div>

@@ -29,7 +29,7 @@ export class ClientRegister extends Component {
             .registerClient(this.state.clientUser)
             .then(res => {
                 if (res) {
-                    this.props.history.push("./client-login");
+                    this.props.history.push("./client/login");
                 }
             });
     };
@@ -70,7 +70,7 @@ export class ClientRegister extends Component {
                                     "Register"
                                 )}
                         </button>
-                        <Link className="redirect-login" to="instructor-login">Already have an Account? Sign in here</Link>
+                        <Link className="redirect-login" to="/client/login">Already have an Account? Sign in here</Link>
                     </form>
                 </div>
             </div>

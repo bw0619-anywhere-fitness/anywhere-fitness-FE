@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export class ClientWelcome extends Component {
     componentDidMount() {
-        this.props.history.push('/client-login');
+        this.props.history.push('/client/login');
     }
     render() {
         return (

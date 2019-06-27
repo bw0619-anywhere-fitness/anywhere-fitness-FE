@@ -64,7 +64,7 @@ const InstructorClass = props => {
                 </div>
 
             </div>
-            <Link to={`/update-class-form/${props.instructorClass.classId}`}>
+            <Link to={`/instructor/update-class-form/${props.instructorClass.classId}`}>
                 <button className="view-details-btn">View Details</button>
             </Link>
         </div>

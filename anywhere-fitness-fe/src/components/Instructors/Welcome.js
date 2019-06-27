@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export class Welcome extends Component {
     componentDidMount() {
-        this.props.history.push('/instructor-login');
+        this.props.history.push('/instructor');
     }
 
     render() {

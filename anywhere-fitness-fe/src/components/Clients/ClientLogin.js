@@ -4,7 +4,6 @@ import Loader from "react-loader-spinner";
 import { connect } from 'react-redux';
 import { clientLogin } from '../../actions';
 
-
 export class ClientLogin extends Component {
 
     state = {
@@ -29,7 +28,7 @@ export class ClientLogin extends Component {
             .clientLogin(this.state.credentials)
             .then(res => {
                 if (res) {
-                    this.props.history.push('./client-home');
+                    this.props.history.push('/client/home');
                 }
             })
     }
@@ -63,7 +62,7 @@ export class ClientLogin extends Component {
                                     "Login"
                                 )}
                         </button>
-                        <Link className="redirect-register" to="/instructor-register">Don't have an Account? Sign up here</Link>
+                        <Link className="redirect-register" to="/instructor/register">Don't have an Account? Sign up here</Link>
                     </form>
                 </div>
             </div>

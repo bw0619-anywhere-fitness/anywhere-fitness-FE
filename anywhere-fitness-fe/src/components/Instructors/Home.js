@@ -14,7 +14,7 @@ export class Home extends Component {
     render() {
         return (
             <div className="home">
-                <Link to="/add-class">
+                <Link to="/instructor/add-class">
                     <button className="add-class-btn">Add Class</button>
                 </Link>
                 <div className="instructor-classes">

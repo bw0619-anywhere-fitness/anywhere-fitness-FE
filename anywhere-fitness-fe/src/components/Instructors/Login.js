@@ -27,7 +27,7 @@ export class Login extends Component {
             .login(this.state.credentials)
             .then(res => {
                 if (res) {
-                    this.props.history.push('./business-home');
+                    this.props.history.push('./instructor/home');
                 }
             })
     }
@@ -61,7 +61,7 @@ export class Login extends Component {
                                     "Login"
                                 )}
                         </button>
-                        <Link className="redirect-register" to="/instructor-register">Don't have an Account? Sign up here</Link>
+                        <Link className="redirect-register" to="/instructor/register">Don't have an Account? Sign up here</Link>
                     </form>
                 </div>
             </div>

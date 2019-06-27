@@ -46,7 +46,7 @@ export class UpdateClassForm extends Component {
                         onSubmit={(e) => {
                             e.preventDefault();
                             this.props.updateClass(this.state.singleClass.id, this.state.singleClass);
-                            this.props.history.push('/business-home');
+                            this.props.history.push('/instructor/home');
                         }}
                     >
                         <div>
@@ -131,7 +131,7 @@ export class UpdateClassForm extends Component {
                             <button className="delete-btn" onClick={(e) => {
                                 e.preventDefault();
                                 this.props.deleteClass(this.state.singleClass.id, this.state.singleClass)
-                                this.props.history.push('/home');
+                                this.props.history.push('/instructor/home');
                             }}>Delete</button>
                         </div>
 

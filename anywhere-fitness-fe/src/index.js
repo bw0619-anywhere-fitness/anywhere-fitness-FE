@@ -8,7 +8,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import logger from "redux-logger";
 import thunk from "redux-thunk";
 import rootReducer from "./reducers";
-import ClientApp from './ClientApp';
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
@@ -16,8 +15,11 @@ ReactDOM.render(
 
     <Provider store={store}>
         <Router>
-            <Route exact path="/" component={App} />
-            <Route path="/client-app" component={ClientApp} />
+            <Route path="/"
+                render={props => (
+                    <App {...props} />
+                )}
+            />
         </Router>
     </Provider>,
     document.getElementById('root')

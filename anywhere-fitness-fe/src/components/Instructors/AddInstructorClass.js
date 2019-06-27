@@ -36,7 +36,7 @@ export class AddInstructorClass extends Component {
     hanldeSubmit = e => {
         e.preventDefault();
         this.props.createClass(this.state.singleClass)
-        this.props.history.push('/business-home');
+        this.props.history.push('/instructor/home');
         this.setState({
             singleClass: {
                 name: "",

@@ -1,16 +1,14 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
 
 export class Welcome extends Component {
+    componentDidMount() {
+        this.props.history.push('/instructor-login');
+    }
     render() {
         return (
             <div className="welcome">
                 <div className="welcome-header">
                     <h1> Welcome to Anywhere Fitness!</h1>
-                    <div className="welcome-links">
-                        <Link to="/instructor-login">Login</Link>
-                        <Link to="/instructor-register">Register</Link>
-                    </div>
                 </div>
             </div>
         )

@@ -70,7 +70,7 @@ export class ClientRegister extends Component {
                 "Register"
               )}
             </button>
-            <Link className="redirect-login" to="/client/login">
+            <Link className="redirect-login" to="/client">
               Already have an Account? Sign in here
             </Link>
           </form>

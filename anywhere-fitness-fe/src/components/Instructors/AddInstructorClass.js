@@ -67,6 +67,7 @@ export class AddInstructorClass extends Component {
           <div className="form-group">
             class:
             <input
+              className="add-class-name-input"
               required
               type="text"
               onChange={this.changeHandler}

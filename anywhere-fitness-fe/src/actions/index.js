@@ -199,6 +199,7 @@ export const clientLogin = credentials => dispatch => {
     .post("/client-login", credentials)
     .then(res => {
       localStorage.setItem("token", res.data.token);
+      cookie.save("client", res.data.client);
       dispatch({
         type: CLIENT_LOGIN_SUCCESS,
         payload: res.data.client
@@ -233,6 +234,29 @@ export const getAllClassesClient = () => dispatch => {
     .catch(err => {
       dispatch({
         type: GETALLCLASSES_CLIENT_FAILURE,
+        payload: err.response
+      });
+    });
+};
+
+export const GETCLASS_CLIENT_BYID_START = "GETCLASS_CLIENT_BYID_START";
+export const GETCLASS_CLIENT_BYID_SUCCESS = "GETCLASS_CLIENT_BYID_SUCCESS";
+export const GETCLASS_CLIENT_BYID_FAILURE = "GETCLASS_CLIENT_BYID_FAILURE";
+export const getClassByClientId = clientId => dispatch => {
+  dispatch({ type: GETCLASS_CLIENT_BYID_START });
+  axiosWithAuth()
+    .get(
+      `https://anywhere-fitness-azra-be.herokuapp.com/api/clients/${clientId}/classes`
+    )
+    .then(res => {
+      dispatch({
+        type: GETCLASS_CLIENT_BYID_SUCCESS,
+        payload: res.data
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: GETCLASS_CLIENT_BYID_FAILURE,
         payload: err.response
       });
     });

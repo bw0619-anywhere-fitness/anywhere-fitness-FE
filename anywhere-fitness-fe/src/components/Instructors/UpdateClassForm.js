@@ -19,7 +19,6 @@ export class UpdateClassForm extends Component {
   };
 
   componentDidMount() {
-    this.props.getClassByInstructor(4);
     axiosWithAuth()
       .get(
         `https://anywhere-fitness-azra-be.herokuapp.com/api/classes/${

@@ -15,6 +15,8 @@ import { isLoggedIn, logout } from "./actions";
 import Logo from "./assets/logo.png";
 import cookie from "react-cookies";
 import AddInstructorClass from "./components/Instructors/AddInstructorClass";
+import ClientSignUpClasses from "./components/Clients/ClientSignUpClasses";
+import ClientClassView from "./components/Clients/ClientClassView";
 
 class App extends React.Component {
   componentDidMount() {
@@ -93,6 +95,16 @@ class App extends React.Component {
         <Route
           path="/client/register"
           render={props => <ClientRegister {...props} />}
+        />
+
+        <Route
+          path="/client/class/scheduled"
+          render={props => <ClientSignUpClasses {...props} />}
+        />
+
+        <Route
+          path="/client/class/view"
+          render={props => <ClientClassView {...props} />}
         />
 
         <ClientPrivateRoute

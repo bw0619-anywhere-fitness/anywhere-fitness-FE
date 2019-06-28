@@ -28,9 +28,8 @@
         }
 
         .logout-btn {
-          font-weight: bold;
           color: #fff;
-          background-color: #9013fe;
+          background-color: #00bfff;
           border: none;
           border-radius: 25px;
           padding: 10px 25px;
@@ -38,7 +37,7 @@
           cursor: pointer;
         }
         .logout-btn:hover {
-          color: #9013fe;
+          color: #00bfff;
           background-color: #ffffff;
         }
       }
@@ -52,13 +51,15 @@
     text-align: center;
     margin: auto;
     padding-top: 75px;
+
     .instructor-classes,
     .client-classes {
       display: flex;
       flex-flow: row;
       flex-wrap: wrap;
-      margin-top: 20px;
+      margin-top: 35px;
       justify-content: space-evenly;
+
       .instructor-class,
       .client-class {
         padding: 20px 20px;
@@ -82,13 +83,17 @@
           font-weight: bold;
         }
 
-        .instructor-class-name {
+        .instructor-class-name,
+        .client-class-name {
           font-weight: bold;
           text-transform: uppercase;
+          font-size: 1.2rem;
         }
 
-        .instructor-class-group {
+        .instructor-class-group,
+        .client-class-group {
           display: flex;
+          font-size: 0.9rem;
           .class-prop {
             margin: 0px 15px 0px 0px;
           }
@@ -108,7 +113,6 @@
           border: none;
           border-radius: 25px;
           font-size: 0.9rem;
-          font-weight: bold;
           padding: 5px 20px;
           cursor: pointer;
           outline: none;
@@ -127,12 +131,12 @@
       color: #fff;
       background-color: #ff8c42;
       border: none;
-      border-radius: 25px;
+      border-radius: 5px;
       font-size: 1.5rem;
-      font-weight: bold;
       padding: 10px 25px;
       cursor: pointer;
       outline: none;
+      text-transform: uppercase;
     }
 
     .add-class-btn:hover {
@@ -143,19 +147,25 @@
   }
 
   .client-login {
-    text-align: center;
-    margin: 30px 0px 0px 0px;
-    padding-top: 200px;
     background-image: url("../assets/groupwo.jpg");
-    height: 76vh;
+    text-align: center;
+    margin: auto;
+    padding-top: 17rem;
+    height: 72.2vh;
+
+    img {
+      height: auto;
+      width: 7rem;
+    }
+
     .login-section {
       box-shadow: 0 10px 10px grey;
-      padding: 20px 40px;
+      padding: 70px 40px;
       margin: 15px auto;
       font-size: 1rem;
       width: 25%;
       line-height: 1.2rem;
-      border-radius: 20px;
+      border-radius: 5px;
       text-align: left;
       background: linear-gradient(
         rgba(68, 215, 182, 0.9),
@@ -181,27 +191,24 @@
           border-radius: 5px;
           border: none;
           box-shadow: 0 0px 5px grey;
-          padding: 10px 10px;
-          font-size: 1rem;
+          padding: 10px 40px;
+          font-size: 0.9rem;
+          text-transform: uppercase;
         }
 
         .login-btn {
           margin: 5px auto;
           color: #fff;
-          background-color: #ff8c42;
+          background: linear-gradient(90deg, #d8493c, #f77d0c);
           border: none;
-          border-radius: 25px;
-          font-size: 1.1rem;
+          border-radius: 5px;
+          font-size: 0.9rem;
           font-weight: bold;
-          padding: 5px 20px;
+          padding: 1rem 8rem;
           cursor: pointer;
           outline: none;
-        }
-
-        .login-btn:hover {
-          color: #ff8c42;
-          background-color: #ffffff;
-          border: none;
+          letter-spacing: 0.2rem;
+          text-transform: uppercase;
         }
 
         .redirect-register {
@@ -357,19 +364,20 @@
   }
 
   .client-register {
-    text-align: center;
-    margin: 30px 0px 0px 0px;
-    padding-top: 200px;
     background-image: url("../assets/groupwo.jpg");
-    height: 76vh;
+    text-align: center;
+    margin: auto;
+    padding-top: 17rem;
+    height: 72.2vh;
+
     .register-section {
       box-shadow: 0 10px 10px grey;
-      padding: 20px 40px;
+      padding: 70px 40px;
       margin: 15px auto;
       font-size: 1rem;
       width: 25%;
       line-height: 1.2rem;
-      border-radius: 20px;
+      border-radius: 5px;
       text-align: left;
       background: linear-gradient(
         rgba(68, 215, 182, 0.9),
@@ -379,8 +387,9 @@
       .register-label {
         color: #ffffff;
         text-align: center;
-        font-weight: bold;
         font-size: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
       }
 
       .register-form {
@@ -395,26 +404,23 @@
           border-radius: 5px;
           border: none;
           box-shadow: 0 0px 5px grey;
-          padding: 10px 10px;
+          padding: 10px 40px;
           font-size: 1rem;
         }
 
         .register-btn {
           margin: 5px auto;
           color: #fff;
-          background-color: #9013fe;
+          background: linear-gradient(90deg, #d8493c, #f77d0c);
           border: none;
-          border-radius: 25px;
-          font-size: 1.1rem;
+          border-radius: 5px;
+          font-size: 0.9rem;
           font-weight: bold;
-          padding: 5px 20px;
+          padding: 1rem 8rem;
           cursor: pointer;
           outline: none;
-        }
-        .register-btn:hover {
-          color: #9013fe;
-          background-color: #ffffff;
-          border: none;
+          letter-spacing: 0.2rem;
+          text-transform: uppercase;
         }
 
         .redirect-login {
@@ -468,7 +474,6 @@
         text-align: center;
         background-color: #ff8c42;
         color: #ffffff;
-        border-radius: 1rem;
         font-weight: bold;
       }
 
@@ -479,18 +484,14 @@
       }
 
       .back-btn {
-        background-color: #ff4a4a;
+        background-color: #ffffff;
         border: none;
         padding: 10px;
         margin: 10px auto;
         border-radius: 25px;
-        color: #ffffff;
+        color: #ff4a4a;
         cursor: pointer;
         font-weight: bold;
-      }
-      .back-btn:hover {
-        background-color: #ffffff;
-        color: #ff4a4a;
       }
 
       .update-form-buttons {
@@ -500,7 +501,7 @@
           color: #fff;
           background-color: #ff8c42;
           border: none;
-          border-radius: 25px;
+          border-radius: 5px;
           font-size: 1.5rem;
           font-weight: bold;
           padding: 10px 25px;
@@ -517,9 +518,9 @@
         .delete-btn {
           margin: 5px auto;
           color: #fff;
-          background-color: #9013fe;
+          background-color: #00bfff;
           border: none;
-          border-radius: 25px;
+          border-radius: 5px;
           font-size: 1.5rem;
           font-weight: bold;
           padding: 10px 25px;
@@ -528,7 +529,7 @@
         }
 
         .delete-btn:hover {
-          color: #9013fe;
+          color: #00bfff;
           background-color: #ffffff;
           border: none;
         }
@@ -564,6 +565,11 @@
         font-size: 1rem;
       }
 
+      .add-class-name-input {
+        font-size: 2rem;
+        text-transform: uppercase;
+      }
+
       .form-group {
         display: flex;
         margin: 15px auto;
@@ -575,19 +581,18 @@
       .form-label {
         font-size: 2.5rem;
         text-align: center;
-        background-color: #985dff;
+        background-color: #32c5ff;
         color: #ffffff;
-        border-radius: 1rem;
         font-weight: bold;
       }
 
       .back-btn {
-        background-color: #ff4a4a;
+        background-color: #ffffff;
         border: none;
         padding: 10px;
         margin: 10px auto;
         border-radius: 25px;
-        color: #ffffff;
+        color: #ff4a4a;
         cursor: pointer;
         font-weight: bold;
       }
@@ -601,12 +606,12 @@
         color: #ffffff;
         background-color: #ff8c42;
         border: none;
-        border-radius: 25px;
+        border-radius: 5px;
         font-size: 1.5rem;
-        font-weight: bold;
         padding: 10px 25px;
         cursor: pointer;
         outline: none;
+        text-transform: uppercase;
       }
 
       .add-class-btn:hover {

@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ClientClass = props => {
-  console.log(props);
   return (
     <div className="client-class">
       <div className="client-class-label">Class</div>

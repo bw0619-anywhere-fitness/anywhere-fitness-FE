@@ -14,9 +14,12 @@ export class Home extends Component {
     return (
       <div className="home">
         <div className="instructor-controls">
-          <Link to="/instructor/add-class">
-            <button className="add-class-btn">Add Class</button>
-          </Link>
+          <div className="home-top">
+            <h1 className="home-header">My Upcoming Classes</h1>
+            <Link to="/instructor/add-class">
+              <button className="add-class-btn">Add Class</button>
+            </Link>
+          </div>
           <div className="instructor-classes">
             {this.props.instructorClasses.map(instructorClass => {
               return (

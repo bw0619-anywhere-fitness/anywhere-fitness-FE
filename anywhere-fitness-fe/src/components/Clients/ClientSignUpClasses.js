@@ -10,7 +10,6 @@ export class ClientSignUpClasses extends Component {
   componentDidMount() {
     this.props.getClassByClientId(cookie.load("client")[0]["id"]);
   }
-
   render() {
     return (
       <div className="client-signup-classes">

@@ -49,14 +49,24 @@ class App extends React.Component {
           return null;
         }} />
 
-        <PrivateRoute
+
+        <Route
           exact
-          path="/instructor/home"
-          component={props => (
-            <Home
+          path="/instructor"
+          render={props => (
+            <Login
               {...props}
             />
           )} />
+
+        <Route
+          path="/client"
+          render={props => (
+            <ClientLogin
+              {...props}
+            />
+          )} />
+
 
         <Route
           path="/instructor/register"
@@ -66,11 +76,11 @@ class App extends React.Component {
             />
           )} />
 
-        <Route
+        <PrivateRoute
           exact
-          path="/instructor"
-          render={props => (
-            <Login
+          path="/instructor/home"
+          component={props => (
+            <Home
               {...props}
             />
           )} />
@@ -93,10 +103,11 @@ class App extends React.Component {
           )}
         />
 
+
         <Route
-          path="/client"
+          path="/client/register"
           render={props => (
-            <ClientLogin
+            <ClientRegister
               {...props}
             />
           )} />
@@ -110,13 +121,7 @@ class App extends React.Component {
             />
           )} />
 
-        <Route
-          path="/client/register"
-          render={props => (
-            <ClientRegister
-              {...props}
-            />
-          )} />
+
 
       </div>
 

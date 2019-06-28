@@ -4,8 +4,6 @@ import { getAllClassesClient } from '../../actions';
 
 export class ClientHome extends Component {
 
-
-
     render() {
         console.log(this.props)
         return (

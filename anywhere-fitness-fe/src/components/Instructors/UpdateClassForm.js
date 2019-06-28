@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateClass, deleteClass } from '../../actions';
+import { updateClass, deleteClass, getClassByInstructor } from '../../actions';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import WorkoutGraphicOrng from '../../assets/workout-graphic.svg'
 
@@ -19,6 +19,7 @@ export class UpdateClassForm extends Component {
     }
 
     componentDidMount() {
+        this.props.getClassByInstructor(4)
         axiosWithAuth()
             .get(`https://anywhere-fitness-azra-be.herokuapp.com/api/classes/${this.props.match.params.id}`)
             .then(res => {
@@ -41,7 +42,6 @@ export class UpdateClassForm extends Component {
             <div className="update-class">
                 <div className="update-class-form">
                     <img src={WorkoutGraphicOrng} alt="" />
-
                     <form
                         onSubmit={(e) => {
                             e.preventDefault();
@@ -152,6 +152,7 @@ export default connect(
     mapStateToProps,
     {
         updateClass,
-        deleteClass
+        deleteClass,
+        getClassByInstructor
     }
 )(UpdateClassForm)

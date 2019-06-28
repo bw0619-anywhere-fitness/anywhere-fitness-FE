@@ -2,9 +2,8 @@
   font-size: 1.2rem;
 
   .nav {
-    margin: -30px auto;
-    padding: 16px;
-    background: linear-gradient(#3d9de2, #9013fe);
+    margin: auto;
+    padding: 15px;
     position: fixed;
     width: 100%;
 
@@ -22,42 +21,10 @@
         color: #ffffff;
       }
 
-      .home-link {
-        img {
-          height: 8rem;
-          width: auto;
-        }
-      }
-
       .user-links {
         margin: auto 10px;
         a {
           margin: auto 10px;
-        }
-
-        .login-btn-nav {
-          font-weight: bold;
-          color: #fff;
-          background-color: #ff8c42;
-          border: none;
-          border-radius: 25px;
-          padding: 10px 25px;
-        }
-        .login-btn-nav:hover {
-          box-shadow: 0 0px 10px #ffffff;
-        }
-
-        .register-btn-nav {
-          font-weight: bold;
-          color: #fff;
-          background-color: #9013fe;
-          border: none;
-          border-radius: 25px;
-          padding: 10px 25px;
-        }
-
-        .register-btn-nav:hover {
-          box-shadow: 0 0px 10px #ffffff;
         }
 
         .logout-btn {
@@ -68,33 +35,12 @@
           border-radius: 25px;
           padding: 10px 25px;
           margin-right: 20px;
+          cursor: pointer;
         }
         .logout-btn:hover {
-          box-shadow: 0 0px 10px #ffffff;
+          color: #9013fe;
+          background-color: #ffffff;
         }
-      }
-    }
-  }
-
-  .welcome {
-    text-align: center;
-    .welcome-header {
-      a {
-        text-decoration: none;
-        margin: 5px auto;
-        color: #fff;
-        background-color: #007bff;
-        border-color: #007bff;
-        border-radius: 5px;
-        font-size: 1.1rem;
-        font-weight: bold;
-        padding: 5px 20px;
-      }
-      .welcome-links {
-        display: flex;
-        flex-flow: column;
-        font-size: 1.5rem;
-        margin: 10px auto;
       }
     }
   }
@@ -104,7 +50,7 @@
     display: flex;
     flex-flow: column;
     text-align: center;
-    margin: 30px 80px;
+    margin: auto;
     padding-top: 75px;
     .instructor-classes,
     .client-classes {
@@ -115,18 +61,18 @@
       justify-content: space-evenly;
       .instructor-class,
       .client-class {
-        box-shadow: 0 10px 10px grey;
-        padding: 20px 40px;
-        margin: 15px 20px;
+        padding: 20px 20px;
         font-size: 1rem;
-        width: 25%;
+        width: 20%;
         line-height: 1.2rem;
-        border-radius: 20px;
         text-align: left;
-        background: linear-gradient(
-          rgba(68, 215, 182, 0.7),
-          rgba(50, 197, 255, 0.7)
-        );
+        background: #ffffff;
+        letter-spacing: 0.1rem;
+
+        img {
+          height: auto;
+          width: 100%;
+        }
 
         .instructor-class-label,
         .client-class-label {
@@ -136,10 +82,15 @@
           font-weight: bold;
         }
 
+        .instructor-class-name {
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+
         .instructor-class-group {
           display: flex;
           .class-prop {
-            margin: 5px;
+            margin: 0px 15px 0px 0px;
           }
         }
 
@@ -147,10 +98,7 @@
           font-size: 0.8rem;
         }
         .class-prop {
-          box-shadow: 0 5px 10px grey;
-          padding: 10px;
           border-radius: 5px;
-          margin-bottom: 10px;
           background-color: #ffffff;
         }
         .view-details-btn {
@@ -267,18 +215,24 @@
 
   .login {
     text-align: center;
-    margin: 30px 0px 0px 0px;
-    padding-top: 200px;
+    margin: auto;
+    padding-top: 17rem;
+    height: 72.2vh;
     background-image: url("../assets/athletes-endurance-energy-685534.jpg");
-    height: 76vh;
+
+    img {
+      height: auto;
+      width: 7rem;
+    }
+
     .login-section {
       box-shadow: 0 10px 10px grey;
-      padding: 20px 40px;
+      padding: 70px 40px;
       margin: 15px auto;
       font-size: 1rem;
       width: 25%;
       line-height: 1.2rem;
-      border-radius: 20px;
+      border-radius: 5px;
       text-align: left;
       background: linear-gradient(
         rgba(68, 215, 182, 0.9),
@@ -304,27 +258,24 @@
           border-radius: 5px;
           border: none;
           box-shadow: 0 0px 5px grey;
-          padding: 10px 10px;
-          font-size: 1rem;
+          padding: 10px 40px;
+          font-size: 0.9rem;
+          text-transform: uppercase;
         }
 
         .login-btn {
           margin: 5px auto;
           color: #fff;
-          background-color: #ff8c42;
+          background: linear-gradient(90deg, #d8493c, #f77d0c);
           border: none;
-          border-radius: 25px;
-          font-size: 1.1rem;
+          border-radius: 5px;
+          font-size: 0.9rem;
           font-weight: bold;
-          padding: 5px 20px;
+          padding: 1rem 8rem;
           cursor: pointer;
           outline: none;
-        }
-
-        .login-btn:hover {
-          color: #ff8c42;
-          background-color: #ffffff;
-          border: none;
+          letter-spacing: 0.2rem;
+          text-transform: uppercase;
         }
 
         .redirect-register {
@@ -338,18 +289,19 @@
 
   .register {
     text-align: center;
-    margin: 30px 0px 0px 0px;
-    padding-top: 200px;
+    margin: auto;
+    padding-top: 17rem;
+    height: 72.2vh;
     background-image: url("../assets/athletes-endurance-energy-685534.jpg");
-    height: 76vh;
+
     .register-section {
       box-shadow: 0 10px 10px grey;
-      padding: 20px 40px;
+      padding: 70px 40px;
       margin: 15px auto;
       font-size: 1rem;
       width: 25%;
       line-height: 1.2rem;
-      border-radius: 20px;
+      border-radius: 5px;
       text-align: left;
       background: linear-gradient(
         rgba(68, 215, 182, 0.9),
@@ -359,8 +311,9 @@
       .register-label {
         color: #ffffff;
         text-align: center;
-        font-weight: bold;
         font-size: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
       }
 
       .register-form {
@@ -375,26 +328,23 @@
           border-radius: 5px;
           border: none;
           box-shadow: 0 0px 5px grey;
-          padding: 10px 10px;
+          padding: 10px 40px;
           font-size: 1rem;
         }
 
         .register-btn {
           margin: 5px auto;
           color: #fff;
-          background-color: #9013fe;
+          background: linear-gradient(90deg, #d8493c, #f77d0c);
           border: none;
-          border-radius: 25px;
-          font-size: 1.1rem;
+          border-radius: 5px;
+          font-size: 0.9rem;
           font-weight: bold;
-          padding: 5px 20px;
+          padding: 1rem 8rem;
           cursor: pointer;
           outline: none;
-        }
-        .register-btn:hover {
-          color: #9013fe;
-          background-color: #ffffff;
-          border: none;
+          letter-spacing: 0.2rem;
+          text-transform: uppercase;
         }
 
         .redirect-login {
@@ -477,12 +427,19 @@
   }
 
   .update-class-form {
-    margin: 30px 80px;
+    margin: auto 150px;
     display: flex;
-    padding-top: 100px;
+    padding-top: 15rem;
+
+    img {
+      width: 50rem;
+      height: auto;
+      border-radius: 5px;
+    }
 
     form {
-      margin: auto;
+      margin: auto 20px;
+
       div {
         text-align: left;
         font-size: 0.9rem;
@@ -513,6 +470,12 @@
         color: #ffffff;
         border-radius: 1rem;
         font-weight: bold;
+      }
+
+      .update-name {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 2rem;
       }
 
       .back-btn {
@@ -574,11 +537,14 @@
   }
 
   .add-class-form {
-    margin: 30px 80px;
+    margin: auto 150px;
     display: flex;
-    padding-top: 100px;
+    padding-top: 15rem;
+
     img {
-      width: 55%;
+      width: 50rem;
+      height: auto;
+      border-radius: 5px;
     }
 
     form {

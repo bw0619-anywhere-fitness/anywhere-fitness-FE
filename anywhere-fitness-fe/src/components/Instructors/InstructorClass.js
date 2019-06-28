@@ -1,27 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import GroupWorkout from "../../assets/bandwgroupwo.png";
 
 const InstructorClass = props => {
   return (
     <div className="instructor-class">
-      <div className="instructor-class-label">Class</div>
+      <img src={GroupWorkout} alt="" />
       <div className="instructor-class-name">
-        <div className="class-label">class:</div>
         <div className="class-prop">{props.instructorClass.className}</div>
       </div>
       <div className="instructor-class-group">
-        <div className="class-label">date and time:</div>
         <div className="class-prop date">{props.instructorClass.date}</div>
         <div className="class-prop time">{props.instructorClass.time}</div>
       </div>
       <div className="instructor-class-group">
-        <div className="class-label">address:</div>
         <div className="class-prop">{props.instructorClass.address}</div>
         <div className="class-prop">{props.instructorClass.city}</div>
         <div className="class-prop">{props.instructorClass.zipcode}</div>
       </div>
       <div className="instructor-class-description">
-        <div className="class-label">description:</div>
         <div className="class-prop">{props.instructorClass.description}</div>
       </div>
       <Link

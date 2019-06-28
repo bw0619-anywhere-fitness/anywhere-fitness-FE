@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { updateClass, deleteClass, getClassByInstructor } from "../../actions";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
-import WorkoutGraphicOrng from "../../assets/workout-graphic.svg";
+import WorkoutGraphicOrng from "../../assets/workoutwallpaper.jpg";
 import { Link } from "react-router-dom";
 
 export class UpdateClassForm extends Component {
@@ -60,7 +60,7 @@ export class UpdateClassForm extends Component {
               <button className="back-btn">{`<`} CLASSES</button>
             </Link>
             <div className="form-label">EDIT A CLASS</div>
-            <div>
+            <div className="form-group">
               class:
               <input
                 required
@@ -69,6 +69,7 @@ export class UpdateClassForm extends Component {
                 placeholder="Class Name"
                 value={this.state.singleClass.name}
                 name="name"
+                className="update-name"
               />
             </div>
             <div className="form-group">
@@ -118,7 +119,7 @@ export class UpdateClassForm extends Component {
                 name="zipcode"
               />
             </div>
-            <div>
+            <div className="form-group">
               description:
               <input
                 required

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createClass } from "../../actions";
 import cookie from "react-cookies";
-import WorkoutGraphicPurp from "../../assets/workout-graphic2.svg";
+import WorkoutGraphicPurp from "../../assets/groupwo.jpg";
 import { Link } from "react-router-dom";
 
 export class AddInstructorClass extends Component {
@@ -132,7 +132,7 @@ export class AddInstructorClass extends Component {
               value={this.state.singleClass.zipcode}
             />
           </div>
-          <div>
+          <div className="form-group">
             description:
             <input
               required

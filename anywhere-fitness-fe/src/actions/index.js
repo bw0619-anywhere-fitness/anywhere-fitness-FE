@@ -261,3 +261,26 @@ export const getClassByClientId = clientId => dispatch => {
       });
     });
 };
+
+export const SIGNUP_CLIENT_CLASS_START = "SIGNUP_CLIENT_CLASS_START";
+export const SIGNUP_CLIENT_CLASS_SUCCESS = "SIGNUP_CLIENT_CLASS_SUCCESS";
+export const SIGNUP_CLIENT_CLASS_FAILURE = "SIGNUP_CLIENT_CLASS_FAILURE";
+export const signUpClientClass = (clientId, classId) => dispatch => {
+  dispatch({ type: SIGNUP_CLIENT_CLASS_START });
+  return axiosWithAuth()
+    .post(
+      `https://anywhere-fitness-azra-be.herokuapp.com/api/clients/${clientId}/classes/sign-up/${classId}`
+    )
+    .then(res => {
+      dispatch({
+        tyep: SIGNUP_CLIENT_CLASS_SUCCESS,
+        payload: res.data
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: SIGNUP_CLIENT_CLASS_FAILURE,
+        payload: err.response
+      });
+    });
+};

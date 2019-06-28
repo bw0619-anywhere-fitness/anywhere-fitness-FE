@@ -45,15 +45,70 @@
   }
 
   .home,
-  .client-home {
+  .client-home,
+  .client-signup-classes {
     display: flex;
     flex-flow: column;
     text-align: center;
     margin: auto;
     padding-top: 75px;
 
+    .client-home-top {
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+      .client-home-header {
+        margin: auto 10rem;
+        text-transform: uppercase;
+        background-color: #00bfff;
+        color: #ffffff;
+        padding: 1rem;
+        border-radius: 5px;
+      }
+      .scheduled-btn {
+        margin: 0.8rem 3rem;
+        color: #fff;
+        background: linear-gradient(90deg, #d8493c, #f77d0c);
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        padding: 10px 25px;
+        cursor: pointer;
+        outline: none;
+      }
+    }
+
+    .client-signup-top {
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+      .client-signup-header {
+        margin: auto 10rem;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, #d8493c, #f77d0c);
+        color: #ffffff;
+        padding: 1rem;
+        border-radius: 5px;
+      }
+      a {
+        margin: auto 7rem;
+        .all-back-btn {
+          margin: 0.8rem 3rem;
+          color: #fff;
+          background-color: #00bfff;
+          border: none;
+          border-radius: 5px;
+          font-size: 1rem;
+          padding: 10px 25px;
+          cursor: pointer;
+          outline: none;
+        }
+      }
+    }
+
     .instructor-classes,
-    .client-classes {
+    .client-classes,
+    .signup-classes {
       display: flex;
       flex-flow: row;
       flex-wrap: wrap;
@@ -61,7 +116,8 @@
       justify-content: space-evenly;
 
       .instructor-class,
-      .client-class {
+      .client-class,
+      .signup-class {
         padding: 20px 20px;
         font-size: 1rem;
         width: 20%;
@@ -84,17 +140,20 @@
         }
 
         .instructor-class-name,
-        .client-class-name {
+        .client-class-name,
+        .signup-class-name {
           font-weight: bold;
           text-transform: uppercase;
           font-size: 1.2rem;
         }
 
         .instructor-class-group,
-        .client-class-group {
+        .client-class-group,
+        .signup-class-group {
           display: flex;
           font-size: 0.9rem;
-          .class-prop {
+          .class-prop,
+          .sign-up-prop {
             margin: 0px 15px 0px 0px;
           }
         }

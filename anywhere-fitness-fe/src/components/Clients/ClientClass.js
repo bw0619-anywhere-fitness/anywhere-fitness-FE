@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Treadmills from "../../assets/treadmills.jpg";
+import cookie from "react-cookies";
 
 const ClientClass = props => {
   return (
@@ -21,8 +22,18 @@ const ClientClass = props => {
       <div className="client-class-description">
         <div className="class-prop">{props.clientClass.description}</div>
       </div>
-      <Link to={`/client/class/view`}>
-        <button className="view-details-btn">View Details</button>
+      <Link to={`/client/class/scheduled`}>
+        <button
+          onClick={() =>
+            props.signUpClientClass(
+              cookie.load("client")[0]["id"],
+              props.clientClass.id
+            )
+          }
+          className="view-details-btn"
+        >
+          Schedule Class
+        </button>
       </Link>
     </div>
   );

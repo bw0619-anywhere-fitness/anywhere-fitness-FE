@@ -1,10 +1,10 @@
 import React from "react";
-import Treadmills from "../../assets/treadmills.jpg";
+import PersonalTrainer from "../../assets/personal trainer-carousel.jpg";
 
-const ClientClass = props => {
+const ClientSignUpClass = props => {
   return (
     <div className="signup-class">
-      <img src={Treadmills} alt="" />
+      <img src={PersonalTrainer} alt="" />
       <div className="signup-class-name">
         <div className="signup-prop">{props.clientSignUpClass.className}</div>
       </div>
@@ -24,4 +24,4 @@ const ClientClass = props => {
   );
 };
 
-export default ClientClass;
+export default ClientSignUpClass;

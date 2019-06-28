@@ -4,7 +4,10 @@ import {
   GETALLCLASSES_CLIENT_FAILURE,
   GETCLASS_CLIENT_BYID_START,
   GETCLASS_CLIENT_BYID_SUCCESS,
-  GETCLASS_CLIENT_BYID_FAILURE
+  GETCLASS_CLIENT_BYID_FAILURE,
+  SIGNUP_CLIENT_CLASS_START,
+  SIGNUP_CLIENT_CLASS_SUCCESS,
+  SIGNUP_CLIENT_CLASS_FAILURE
 } from "../actions";
 
 const initialState = {
@@ -50,6 +53,18 @@ export const clientHomeReducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload
+      };
+    case SIGNUP_CLIENT_CLASS_START:
+      return {
+        ...state
+      };
+    case SIGNUP_CLIENT_CLASS_SUCCESS:
+      return {
+        ...state
+      };
+    case SIGNUP_CLIENT_CLASS_FAILURE:
+      return {
+        ...state
       };
     default:
       return state;

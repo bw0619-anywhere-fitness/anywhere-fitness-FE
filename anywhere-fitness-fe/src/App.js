@@ -60,13 +60,13 @@ class App extends React.Component {
           )} />
 
         <Route
+          exact
           path="/client"
           render={props => (
             <ClientLogin
               {...props}
             />
           )} />
-
 
         <Route
           path="/instructor/register"

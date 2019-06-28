@@ -98,7 +98,8 @@
     }
   }
 
-  .home {
+  .home,
+  .client-home {
     text-align: center;
     margin: 30px 80px;
     padding-top: 75px;
@@ -180,7 +181,8 @@
     }
   }
 
-  .login {
+  .login,
+  .client-login {
     text-align: center;
     margin: 30px 0px 0px 0px;
     padding-top: 200px;
@@ -251,7 +253,8 @@
     }
   }
 
-  .register {
+  .register,
+  .client-register {
     text-align: center;
     margin: 30px 0px 0px 0px;
     padding-top: 200px;

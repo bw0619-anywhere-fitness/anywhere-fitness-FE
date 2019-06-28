@@ -13,8 +13,10 @@ import {
 const initialState = {
   clientClasses: [],
   clientSignUpClasses: [],
+  clientSignUpClass: "",
   gettingClass: false,
   gettingClasses: false,
+  signingUpClass: false,
   error: ""
 };
 
@@ -56,15 +58,20 @@ export const clientHomeReducer = (state = initialState, action) => {
       };
     case SIGNUP_CLIENT_CLASS_START:
       return {
-        ...state
+        ...state,
+        error: "",
+        signingUpClass: true
       };
     case SIGNUP_CLIENT_CLASS_SUCCESS:
       return {
-        ...state
+        ...state,
+        clientSignUpClass: action.payload,
+        signingUpcalss: false
       };
     case SIGNUP_CLIENT_CLASS_FAILURE:
       return {
-        ...state
+        ...state,
+        error: action.payload
       };
     default:
       return state;

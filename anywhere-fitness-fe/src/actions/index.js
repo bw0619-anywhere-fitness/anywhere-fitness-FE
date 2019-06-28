@@ -273,7 +273,7 @@ export const signUpClientClass = (clientId, classId) => dispatch => {
     )
     .then(res => {
       dispatch({
-        tyep: SIGNUP_CLIENT_CLASS_SUCCESS,
+        type: SIGNUP_CLIENT_CLASS_SUCCESS,
         payload: res.data
       });
     })

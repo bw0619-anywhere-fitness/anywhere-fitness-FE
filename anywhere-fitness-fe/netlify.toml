@@ -1,0 +1,10 @@
+[build]
+ command = "cd anywhere-fitness-fe; yarn build"
+ functions = "functions"
+ publish = "anywhere-fitness-fe/build"
+
+
+ [[redirects]]
+   from = "/*"
+   to = "/index.html"
+   status = 200

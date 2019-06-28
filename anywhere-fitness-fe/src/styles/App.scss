@@ -78,11 +78,13 @@
       }
     }
 
-    .client-signup-top {
+    .client-signup-top,
+    .home-top {
       display: flex;
       flex-flow: row;
       justify-content: space-between;
-      .client-signup-header {
+      .client-signup-header,
+      .home-header {
         margin: auto 10rem;
         text-transform: uppercase;
         background: linear-gradient(90deg, #d8493c, #f77d0c);
@@ -92,7 +94,8 @@
       }
       a {
         margin: auto 7rem;
-        .all-back-btn {
+        .all-back-btn,
+        .add-class-btn {
           margin: 0.8rem 3rem;
           color: #fff;
           background-color: #00bfff;

@@ -1,8 +1,8 @@
 [build]
- command = "cd anywhere-fitness-fe; yarn build"
+ command = "yarn build"
  functions = "functions"
  publish = "anywhere-fitness-fe/build"
-
+ base= "anywhere-fitness-fe"
 
  [[redirects]]
    from = "/*"

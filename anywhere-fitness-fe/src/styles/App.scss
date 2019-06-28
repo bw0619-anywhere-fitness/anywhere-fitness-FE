@@ -103,13 +103,15 @@
     text-align: center;
     margin: 30px 80px;
     padding-top: 75px;
-    .instructor-classes {
+    .instructor-classes,
+    .client-classes {
       display: flex;
       flex-flow: row;
       flex-wrap: wrap;
       margin-top: 20px;
       justify-content: space-evenly;
-      .instructor-class {
+      .instructor-class,
+      .client-class {
         box-shadow: 0 10px 10px grey;
         padding: 20px 40px;
         margin: 15px 20px;
@@ -123,7 +125,8 @@
           rgba(50, 197, 255, 0.7)
         );
 
-        .instructor-class-label {
+        .instructor-class-label,
+        .client-class-label {
           color: #ffffff;
           text-align: center;
           font-size: 2rem;
@@ -181,8 +184,78 @@
     }
   }
 
-  .login,
   .client-login {
+    text-align: center;
+    margin: 30px 0px 0px 0px;
+    padding-top: 200px;
+    background-image: url("../assets/groupwo.jpg");
+    height: 76vh;
+    .login-section {
+      box-shadow: 0 10px 10px grey;
+      padding: 20px 40px;
+      margin: 15px auto;
+      font-size: 1rem;
+      width: 25%;
+      line-height: 1.2rem;
+      border-radius: 20px;
+      text-align: left;
+      background: linear-gradient(
+        rgba(68, 215, 182, 0.9),
+        rgba(50, 197, 255, 0.8)
+      );
+
+      .login-label {
+        color: #ffffff;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+
+      .login-form {
+        display: flex;
+        flex-flow: column;
+        margin: 10px auto;
+
+        input {
+          margin: 5px auto;
+          width: 70%;
+          height: 25px;
+          border-radius: 5px;
+          border: none;
+          box-shadow: 0 0px 5px grey;
+          padding: 10px 10px;
+          font-size: 1rem;
+        }
+
+        .login-btn {
+          margin: 5px auto;
+          color: #fff;
+          background-color: #ff8c42;
+          border: none;
+          border-radius: 25px;
+          font-size: 1.1rem;
+          font-weight: bold;
+          padding: 5px 20px;
+          cursor: pointer;
+          outline: none;
+        }
+
+        .login-btn:hover {
+          color: #ff8c42;
+          background-color: #ffffff;
+          border: none;
+        }
+
+        .redirect-register {
+          margin: auto;
+          text-decoration: none;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+
+  .login {
     text-align: center;
     margin: 30px 0px 0px 0px;
     padding-top: 200px;

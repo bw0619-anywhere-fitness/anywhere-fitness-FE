@@ -1,11 +1,11 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Loader from "react-loader-spinner";
 import { connect } from "react-redux";
-import { login } from "../../actions";
-import { Link } from "react-router-dom";
+import { clientLogin } from "../../actions";
 import awlogo from "../../assets/logocopy.png";
 
-export class Login extends Component {
+export class ClientLogin extends Component {
   state = {
     credentials: {
       username: "",
@@ -24,16 +24,16 @@ export class Login extends Component {
 
   login = e => {
     e.preventDefault();
-    this.props.login(this.state.credentials).then(res => {
+    this.props.clientLogin(this.state.credentials).then(res => {
       if (res) {
-        this.props.history.push("./instructor/home");
+        this.props.history.push("/client/home");
       }
     });
   };
 
   render() {
     return (
-      <div className="login">
+      <div className="client-login">
         <div className="login-section">
           <div className="login-label">
             <img src={awlogo} alt="" />
@@ -65,7 +65,7 @@ export class Login extends Component {
                 "Login"
               )}
             </button>
-            <Link className="redirect-register" to="/instructor/register">
+            <Link className="redirect-register" to="/client/register">
               Don't have an Account? Sign up here
             </Link>
           </form>
@@ -77,12 +77,12 @@ export class Login extends Component {
 
 const mapStateToProps = state => {
   return {
-    error: state.loginReducer.error,
-    loggingIn: state.loginReducer.loggingIn
+    error: state.clientLoginReducer.error,
+    clientLoggingIn: state.clientLoginReducer.loggingIn
   };
 };
 
 export default connect(
   mapStateToProps,
-  { login }
-)(Login);
+  { clientLogin }
+)(ClientLogin);

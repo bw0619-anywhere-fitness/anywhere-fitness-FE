@@ -1,103 +1,112 @@
-import React from 'react';
-import './styles/App.scss';
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-import Home from './components/Instructors/Home';
-import Welcome from './components/Instructors/Welcome';
-import Login from './components/Instructors/Login';
-import Register from './components/Instructors/Register';
-import UpdateClassForm from './components/Instructors/UpdateClassForm';
+import React from "react";
+import "./styles/App.scss";
+import { Route } from "react-router-dom";
+import Home from "./components/Instructors/Home";
+import ClientHome from "./components/Clients/ClientHome";
+import Login from "./components/Instructors/Login";
+import ClientLogin from "./components/Clients/ClientLogin";
+import Register from "./components/Instructors/Register";
+import ClientRegister from "./components/Clients/ClientRegister";
+import UpdateClassForm from "./components/Instructors/UpdateClassForm";
 import PrivateRoute from "./components/Instructors/PrivateRoute";
+import ClientPrivateRoute from "./components/Clients/ClientPrivateRoute";
 import { connect } from "react-redux";
-import { isLoggedIn, logout } from './actions';
-import Logo from './assets/logo.svg';
-import cookie from 'react-cookies';
-import AddInstructorClass from './components/Instructors/AddInstructorClass';
+import { isLoggedIn, logout } from "./actions";
+import Logo from "./assets/logo.png";
+import cookie from "react-cookies";
+import AddInstructorClass from "./components/Instructors/AddInstructorClass";
+import ClientSignUpClasses from "./components/Clients/ClientSignUpClasses";
 
 class App extends React.Component {
-
   componentDidMount() {
     if (localStorage.getItem("token")) {
-      this.props.isLoggedIn(cookie.load('instructor'))
+      this.props.isLoggedIn(cookie.load("instructor"));
     }
+  }
+
+  logout() {
+    this.props.logout();
+    this.props.history.push("/logout");
   }
 
   render() {
     return (
-      <Router>
-        <div className="App">
-          <nav className="nav">
-            <div className="nav-links">
-              <div className="home-link">
-                <NavLink to="/business-home"><img src={Logo} alt="" /></NavLink>
-              </div>
-              {!this.props.loggedIn ? (
-                <div className="user-links">
-                  <NavLink className="login-btn-nav" to="/instructor-login">Login</NavLink>
-                  <NavLink className="register-btn-nav" to="/instructor-register">Register</NavLink>
-                </div>) : (
-                  <div className="user-links">
-                    <NavLink className="logout-btn" onClick={() => this.props.logout()} to="/instructor-login">Logout</NavLink>
-                  </div>
-                )}
+      <div className="App">
+        <nav className="nav">
+          <div className="nav-links">
+            <div className="home-link">
+              <img src={Logo} alt="" />
             </div>
-          </nav>
-
-          <Route
-            exact
-            path="/"
-            render={props => (
-              <Welcome
-                {...props}
-              />
+            {this.props.loggedIn || this.props.clientLoggedIn ? (
+              <div className="user-links">
+                <button className="logout-btn" onClick={() => this.logout()}>
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <div />
             )}
-          />
+          </div>
+        </nav>
 
-          <PrivateRoute
-            exact
-            path="/business-home"
-            component={props => (
-              <Home
-                {...props}
-              />
-            )} />
+        <Route
+          path="/logout"
+          component={() => {
+            window.location.href =
+              "https://anywhere-fitness-landing.netlify.com/";
+            return null;
+          }}
+        />
 
-          <Route
-            path="/instructor-register"
-            render={props => (
-              <Register
-                {...props}
-              />
-            )} />
+        <Route
+          exact
+          path="/instructor"
+          render={props => <Login {...props} />}
+        />
 
-          <Route
-            path="/instructor-login"
-            render={props => (
-              <Login
-                {...props}
-              />
-            )} />
+        <Route
+          exact
+          path="/client"
+          render={props => <ClientLogin {...props} />}
+        />
 
-          <Route
-            path="/add-class"
-            render={props => (
-              <AddInstructorClass
-                {...props}
-              />
-            )}
-          />
+        <Route
+          path="/instructor/register"
+          render={props => <Register {...props} />}
+        />
 
-          <Route
-            path="/update-class-form/:id"
-            render={(props) => (
-              <UpdateClassForm
-                {...props}
-              />
-            )}
-          />
+        <PrivateRoute
+          exact
+          path="/instructor/home"
+          component={props => <Home {...props} />}
+        />
 
-        </div>
-      </Router >
+        <Route
+          path="/instructor/add-class"
+          render={props => <AddInstructorClass {...props} />}
+        />
 
+        <Route
+          path="/instructor/update-class-form/:id"
+          render={props => <UpdateClassForm {...props} />}
+        />
+
+        <Route
+          path="/client/register"
+          render={props => <ClientRegister {...props} />}
+        />
+
+        <Route
+          path="/client/class/scheduled"
+          render={props => <ClientSignUpClasses {...props} />}
+        />
+
+        <ClientPrivateRoute
+          exact
+          path="/client/home"
+          component={props => <ClientHome {...props} />}
+        />
+      </div>
     );
   }
 }
@@ -105,9 +114,10 @@ class App extends React.Component {
 const mapStateToProps = state => {
   return {
     loggedIn: state.loginReducer.loggedIn,
+    clientLoggedIn: state.clientLoginReducer.clientLoggedIn,
     singleClass: state.homeReducer.singleClass
-  }
-}
+  };
+};
 
 export default connect(
   mapStateToProps,
